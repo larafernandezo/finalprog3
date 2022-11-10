@@ -12,6 +12,14 @@ class Login extends Component {
         }
     }
 
+    componentDidMount(){
+        auth.onAuthStateChanged(usuario => {
+            if (usuario){
+                this.props.navigation.navigate ("Home")
+            }
+        })
+    }
+
     iniciarUsuario(email, contraseña){
         auth.signInWithEmailAndPassword(email, contraseña)
             .then( res => {
@@ -30,11 +38,6 @@ class Login extends Component {
 
             <Text style={styles.error}>{this.state.error}</Text>
 
-                <Image
-                    style = {styles.icono}
-                   // source = {require('ruta')} //hay que cambiar
-                    resizeMode = 'contain'
-                />
 
                 <Text style={styles.titulo}>Inicia Sesión</Text>
 
@@ -66,6 +69,7 @@ class Login extends Component {
                     <TouchableOpacity onPress={ () => this.iniciarUsuario (this.state.email, this.state.contraseña)} >
                         <Text style={styles.boton}>Ingresar</Text>
                     </TouchableOpacity>
+            
 }
 
                     <Text onPress={ () => this.props.navigation.navigate ('Registro')} style={styles.link}>¿No tenés una cuenta? Registrate</Text>

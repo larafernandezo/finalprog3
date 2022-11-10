@@ -16,11 +16,10 @@ class Registro extends Component {
         }
     }
 
-
-registrarUsuario(email,contraseña, usuario, biografia, imagen){
+registrarUsuario(email,contra, usuario, biografia, imagen){
     //Lo que queremos hacer es registrar en Firebase que damos de alta al usuario y si el registro sale bien entonces redireccionar a Login //
     //Hacemos uso de auth de firebase y aprovechamos el método createUserWithEmailAndPassword con los parámetros obligatorios que son email y pass//
-    auth.createUserWithEmailAndPassword(email,contraseña)
+    auth.createUserWithEmailAndPassword(email,contra)
         .then(res =>{
             //Este método es asincronico por lo que retorna una promise, si se cumple la promise entonces tenemos sucede un then. En el then hacemos uso de add para agregar la coleccion users y dar de alta al usuario con los valores propios de este usuari//
                 db.collection("users").add({
