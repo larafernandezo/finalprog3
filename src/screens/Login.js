@@ -15,7 +15,7 @@ class Login extends Component {
     componentDidMount(){
         auth.onAuthStateChanged(usuario => {
             if (usuario){
-                this.props.navigation.navigate ("Home")
+                this.props.navigation.navigate ("Menu")
             }
         })
     }
@@ -23,7 +23,7 @@ class Login extends Component {
     iniciarUsuario(email, contraseña){
         auth.signInWithEmailAndPassword(email, contraseña)
             .then( res => {
-                this.props.navigation.navigate('Home')
+                this.props.navigation.navigate("Menu")
             })
             .catch(error => 
                 this.setState({
