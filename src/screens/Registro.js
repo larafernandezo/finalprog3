@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {auth, db} from '../firebase/config';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import MyCamera from '../components/Camera';
 
 class Registro extends Component {
     constructor(){
@@ -13,9 +14,15 @@ class Registro extends Component {
             biografia: "",
             imagen: "",
             error: "",
+            showCamera: false
         }
     }
-
+onImageUpload(url){
+    this.setState({
+        imagen: url,
+        showCamera: false
+    })
+}
 registrarUsuario(email,contra, usuario, biografia, imagen){
     //Lo que queremos hacer es registrar en Firebase que damos de alta al usuario y si el registro sale bien entonces redireccionar a Login //
     //Hacemos uso de auth de firebase y aprovechamos el método createUserWithEmailAndPassword con los parámetros obligatorios que son email y pass//
@@ -89,13 +96,16 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
                         value = {this.state.bio}
                         style={styles.campo}
                     />  
-                    <TextInput 
-                        placeholder= 'Imagen de Perfil'
-                        keyboardType= 'default' //falta definir
-                        onChangeText={ texto => this.setState({imagen : texto})}
-                        value = {this.state.imagen}
-                        style={styles.campo}
-                    />  
+                    {
+                        this.state.showCamera ? 
+                            <View style={{width: "125vh", height: "125vh"}}>
+                                <MyCamara onImageUpload={url => this.onImageUpload(url)}/>
+                            </View>
+                            :
+                            <TouchableOpacity onPress={ () => this.setState({showCamera: true})}> 
+                                <Text style={styles.boton}>Registrarme</Text>
+                            </TouchableOpacity>
+                    }
 
             {
                 this.state.email =="" || this.state.contraseña =="" || this.state.usuario == "" ? 

@@ -5,6 +5,7 @@ import Registro from './src/screens/Registro';
 import Login from './src/screens/Login';
 import Home from './src/screens/Home';
 import Menu from './src/components/Menu';
+import Perfil from './src/screens/Perfil';
 
 
 const Stack = createNativeStackNavigator();

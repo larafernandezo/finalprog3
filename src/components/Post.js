@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
-
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 
@@ -99,6 +98,9 @@ class Post extends Component {
         //componendismount this.props.navigarion.navigate ('homemenu")
         return(
             <View>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate("Perfil")}>
+                    <Text>{this.props.posteoData.data.owner} </Text>
+                </TouchableOpacity>
                 <Image 
                     style={styles.photo}
                     source={{uri: this.props.postData.data.photo}}

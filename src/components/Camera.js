@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { storage } from '../firebase/config';
 import { Feather } from '@expo/vector-icons';
 
-class MiCamera extends Component {
+class MyCamera extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -129,4 +129,4 @@ const styles = StyleSheet.create({
         padding: '30px'
     }
 })
-export default MiCamera;
+export default MyCamera;

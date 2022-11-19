@@ -1,8 +1,8 @@
 import {Text, FlatList, View, StyleSheet, TouchableOpacity, Image} from 'react-native'
-import {auth, db} from '../firebase/config'
-import firebase from 'firebase'
+import {auth, db} from '../firebase/config';
+import firebase from 'firebase';
 import React, { Component } from 'react';
-import Posteo from '../components/Posteo'
+import Post from '../components/Post'
 
 class Perfil extends Component {
     constructor(){
@@ -46,7 +46,17 @@ class Perfil extends Component {
             )
         }
 
-
+        deleteProfile(){
+            auth.currentUser.delete()
+                .then( () => {
+                    this.props.navigation.navigate("Login")
+                })
+                .catch(error => 
+                    this.setState({
+                    error: 'No se ha podido borrar su cuenta'
+                })
+            )
+        }
 logout() {
     auth.signOut()
     this.props.navigation.navigate('Login')
@@ -63,8 +73,9 @@ logout() {
                 <Text> {this.state.user[0].data.owner} </Text> 
                 <Text> {this.state.user[0].data.biografia} </Text> 
                 <Image
-                source={this.state.user[0].data.imagen}
-                resizeMode='cover'
+                style={styles.foto}
+                source={{ uri: this.state.user.photo }}
+                resizeMode='contain'
                 />
                 </View>
             }
@@ -79,7 +90,9 @@ logout() {
                 <TouchableOpacity onPress={ () => this.logout ()}>
                         <Text>Salir de mi cuenta</Text>
                 </TouchableOpacity>
-
+                <TouchableOpacity onPress={ () => this.deleteProfile ()}>
+                        <Text>Eliminar mi cuenta</Text>
+                </TouchableOpacity>
             
         </View>
         );
@@ -90,6 +103,10 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 22,
         color: "red"
+    },
+    foto: {
+        width: 250,
+        height: 250
     }
 })
 
