@@ -19,7 +19,7 @@ class Comentario extends Component {
     db.collection("posts").doc(this.state.id).onSnapshot((doc) => {
         this.setState({
           data: doc.data(),
-        });
+        });8    
       });
   }
 
@@ -52,6 +52,12 @@ class Comentario extends Component {
 //quee viene en render item. lo que queeremos hacer es imprimir cosas, por eso es q usamos arrow function y vamos a decirle que imprima todos los titulos de nuestros comentarios.
 //ZDentro de text le decimo q de los comentarios lo que qieremos escrubir son los teetxo.
 
+
+
+//AHora podemos renderizae un componente, pasarle props
+// Armamos un view para q no rompa yl eeponemos ele text y la flatlist
+//flat tiene sus 3 domponentes data, key xtractor y y el otro es render item 
+//
   render() {
     return (
       <View style={styles.container}>
