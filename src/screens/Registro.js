@@ -99,7 +99,7 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
                     {
                         this.state.showCamera ? 
                             <View style={{width: "125vh", height: "125vh"}}>
-                                <MyCamara onImageUpload={url => this.onImageUpload(url)}/>
+                                <MyCamera onImageUpload={url => this.onImageUpload(url)}/>
                             </View>
                             :
                             <TouchableOpacity onPress={ () => this.setState({showCamera: true})}> 

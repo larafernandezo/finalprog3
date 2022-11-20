@@ -3,6 +3,7 @@ import MiPerfil from '../screens/MiPerfil';
 import NuevoPost from "../screens/NuevoPost"
 import Home from '../screens/Home';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
+import React, { Component } from 'react';
 
 const Tab = createBottomTabNavigator();
 
