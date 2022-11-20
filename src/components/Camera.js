@@ -39,7 +39,7 @@ class MyCamera extends Component {
             .then(res => res.blob())
             .then(image => {
                 const ref = storage.ref(`photos/${Date.now()}.jpg`)
-                ref.put(image)
+                ref.put(image) //ref es un atributo, es una rederencia a esa camara apara despues poder pedirle a esa camara
                     .then(() => {
                         ref.getDownloadURL()
                             .then(url => {

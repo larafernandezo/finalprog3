@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, TextInput, TouchableOpacity,View} from 'react-native';
+import {Text, StyleSheet, TextInput, TouchableOpacity,View} from 'react-native';
 import {auth, db} from '../firebase/config';
 import MyCamera from "../components/Camera";
 
@@ -29,7 +29,7 @@ class NuevoPost extends Component{
     createPost(texto, photo){
         db.collection('posts').add({
                 owner: auth.currentUser.email, //deberia ser el usuario registrado. auth.currentUser
-                textoPosteo: texto,
+                textoPost: texto,
                 photo: photo,
                 likes:[],
                 comments:[],
@@ -41,7 +41,7 @@ class NuevoPost extends Component{
             //Catch para q no se rompa nada
             .then(() => {
                 this.setState({
-                    textoPosteo:'',
+                    textoPost:'',
                     showCamera: true,
                 })
                 this.props.navigation.navigate('Home')

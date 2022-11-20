@@ -7,7 +7,7 @@ class Home extends Component {
     constructor(){
         super();
         this.state = {
-            posteos: [],
+            posts: [],
 
         }
     }
@@ -16,7 +16,7 @@ class Home extends Component {
 //con ese estado 
 //estoy trayendo todo lo que tengga la coleccion de posteos 
     componentDidMount() {
-        db.collection('posteos').onSnapshot(
+        db.collection('posts').onSnapshot(
             docs => {
                  //console.log(docs);
                 let posts = []; //armo una varible con estado y acavan a estra todos los datos
@@ -26,7 +26,7 @@ class Home extends Component {
                         data: doc.data()
                     })
                     this.setState({
-                        posteos: posts
+                        posts: posts
                     })
                 })
 
