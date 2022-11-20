@@ -68,15 +68,15 @@ class NuevoPost extends Component{
                 this.state.showCamera ?
                 <MyCamera onImageUpload={url => this.onImageUpload(url)}/>
                 :
-                <View>
+                <View style={styles.container}>
                     <Text> Nuevo posteo form</Text>
                     <View>
                         <TextInput  
-                            placeholder='texto para el posteo'
-                            keyboardType='default'
-                            //poner propiedad para transformarlo en textArea
+                            placeholder='Description'
+                            keyboardType='text'
                             onChangeText={ text => this.setState({textoPost:text}) }
                             value={this.state.textoPost}
+                            style={styles.field}
                         /> 
                         <TouchableOpacity onPress={()=>this.createPost(this.state.textoPost, this.state.photo)}>
                             <Text>Guardar</Text>
@@ -88,6 +88,22 @@ class NuevoPost extends Component{
         )
     }
 }
+const styles = StyleSheet.create({
+    container: {
+        paddingHorizontal: 10,
+        marginTop: 10
+    },
+    title: {
+        marginBottom: 20
+    },
+    field: {
+        borderColor: '#dcdcdc',
+        borderWidth: 1,
+        borderRadius: 2,
+        padding: 3,
+        marginBottom: 8
+    }
+})
 //CON  EL posteo creado voy a ir a la home, pantalla principal y lo que voy a hacr en ele component dismount d ela hjome voy a estar trayendo todo lo que tiene la coleccion de posteos 
 //que dice (sigo en home)
 export default NuevoPost;

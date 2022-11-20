@@ -11,7 +11,8 @@ class Post extends Component {
         super(props)
         this.state = {
             cantidadDeLikes:this.props.postData.data.likes.length, //length del array de likes. La base de datos nos tiene quee dar esto, hacemos un lentght del aray de datos para q me devuelva un numero de lo q ya tenga., data son los likes y despue slenght
-            miLike:false
+            miLike:false,
+            comment : ''
         }
     }
 
@@ -21,6 +22,7 @@ class Post extends Component {
         //Si está, voy a cambiar el estado miLike.
         if(this.props.postData.data.likes.includes(auth.currentUser.email)){ 
             this.setState({
+                cantidadDeLikes: this.state.cantidadDeLikes.length,
                 miLike:true
             })
         }
@@ -41,7 +43,7 @@ class Post extends Component {
         db.collection('posts')
             .doc(this.props.postData.id) //identificar el documento
             .update({
-                likes: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email) //traer el email del usuario logueado con auth.currentUser.email. Chequear que este importado auth.
+                likes: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email) 
             })
             //En este then tenemos dos cosas sumarle uno y 
             .then(()=> this.setState({
@@ -57,7 +59,7 @@ class Post extends Component {
         db.collection('posts')
         .doc(this.props.postData.id) //identificar el documento
         .update({
-            likes: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email) //traer el email del usuario logueado con auth.currentUser.email. Chequear que este importado auth.
+            likes: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email) 
         })
         .then(()=> this.setState({
             likes: this.props.postDatalikes.length ,

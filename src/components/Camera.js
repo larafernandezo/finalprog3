@@ -8,7 +8,7 @@ class MyCamera extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            foto: '',
+            photo: '',
             showCamera: true,
             permission: false,
         }
@@ -24,21 +24,21 @@ class MyCamera extends Component {
             .catch(e => console.log(e))
     }
 
-    sacarFoto() {
-        this.metodosDeCamera.sacarFotoAsync()
-            .then(foto => {
+    sacarphoto() {
+        this.metodosDeCamera.sacarphotoAsync()
+            .then(photo => {
                 this.setState({
-                    foto: foto.uri, //Es una uri interna temporal de la foto.
+                    photo: photo.uri, //Es una uri interna temporal de la photo.
                     showCamera: false
                 })
             })
     }
 
-    guardarFoto() {
-        fetch(this.state.foto)
+    guardarphoto() {
+        fetch(this.state.photo)
             .then(res => res.blob())
             .then(image => {
-                const ref = storage.ref(`fotos/${Date.now()}.jpg`)
+                const ref = storage.ref(`photos/${Date.now()}.jpg`)
                 ref.put(image)
                     .then(() => {
                         ref.getDownloadURL()
@@ -52,7 +52,7 @@ class MyCamera extends Component {
     }
     rechazar() {
         this.setState({
-            foto: '',
+            photo: '',
             showCamera: true
         })
     }
@@ -63,11 +63,11 @@ class MyCamera extends Component {
                 {this.state.showCamera === false ?
                     <View>
                         <Image style={styles.preview}
-                            source={{ uri: this.state.foto }}
+                            source={{ uri: this.state.photo }}
                         />
                         <TouchableOpacity
                             style={styles.button}
-                            onPress={() => this.guardarFoto()}>
+                            onPress={() => this.guardarphoto()}>
                             <Text>Aceptar</Text>
                         </TouchableOpacity>
 
@@ -87,7 +87,7 @@ class MyCamera extends Component {
 
                         <TouchableOpacity
                             style={styles.shootButton}
-                            onPress={() => this.sacarFoto()}>
+                            onPress={() => this.sacarphoto()}>
                             <Feather name="camera" size={24} color="black" />
                         </TouchableOpacity>
                     </View>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {auth, db} from '../firebase/config';
-import {Text, View, FlatList} from 'react-native';
+import {Text, FlatList, View} from 'react-native';
 import Post from '../components/Post';
 
 class Home extends Component {
@@ -14,11 +14,12 @@ class Home extends Component {
 //aca dice coleccion posts on sanpchot , voy armando un edstado con la variable qu epueda terminar en el estado a post
 //Con esa variable van a estar los post
 //con ese estado 
+//estoy trayendo todo lo que tengga la coleccion de posteos 
     componentDidMount() {
         db.collection('posteos').onSnapshot(
             docs => {
                  //console.log(docs);
-                let posts = [];
+                let posts = []; //armo una varible con estado y acavan a estra todos los datos
                 docs.forEach(doc => {
                     posts.push({
                         id: doc.id,
@@ -45,19 +46,19 @@ class Home extends Component {
     render(){
         console.log(this.state.posts);
         return(
-            <>
+            <View>
                 <Text> Home</Text>
                 <Text> Lista de posteos </Text>
          
-         
+        
                     <FlatList 
                         data={this.state.posts}
                         keyExtractor={ onePost => onePost.id.toString()}
                         renderItem={ ({item}) => <Post postData={item} />}
                     />        
                 
-            </>
-
+            </View>
+//en la flatlist estoy renderizando lo q le voy a pasar een el componente post 
         )
     }
 }
