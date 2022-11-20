@@ -1,4 +1,4 @@
-import React, { Component, ReactFragment } from 'react';
+import React, { Component } from 'react';
 import { Camera } from 'expo-camera';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { storage } from '../firebase/config';
@@ -15,7 +15,7 @@ class MyCamera extends Component {
     }
 
     componentDidMount() {
-        Camera.requestCameraPermissionsAsync()
+        Camera.requestCameraPermissionsAsync()// a traves de est emetodo lo que le decimos ees que nos permita acceder a la camera
             .then(() => {
                 this.setState({
                     permission: true,

@@ -26,7 +26,7 @@ class NuevoPost extends Component{
     // despues hay un texto, una foto que een principio sto no va a ser una imagen sino una url peero va a venir por parametro dl algun lugar 
     //Despues teenemos que agregar dos posiciones adentro del posteo. Una q va a ser un array de likes  y otra
     //un array de comentarios, por lo pronto estan  vacios.
-    crearPost(texto, photo){
+    createPost(texto, photo){
         db.collection('posts').add({
                 owner: auth.currentUser.email, //deberia ser el usuario registrado. auth.currentUser
                 textoPosteo: texto,
