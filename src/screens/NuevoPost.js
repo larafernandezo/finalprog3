@@ -7,13 +7,14 @@ import MyCamera from "../components/Camera";
 
 
 class NuevoPost extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             textoPost:'',
             createdAt:'',
             photo:'',
             showCamera: true,
+        
         }
     }
 
@@ -79,7 +80,7 @@ class NuevoPost extends Component{
                             style={styles.field}
                         /> 
                         <TouchableOpacity onPress={()=>this.createPost(this.state.textoPost, this.state.photo)}>
-                            <Text>Guardar</Text>
+                            <Text>Subir</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -90,19 +91,21 @@ class NuevoPost extends Component{
 }
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 10,
-        marginTop: 10
-    },
-    title: {
-        marginBottom: 20
+        paddingHorizontal: 5,
+        marginTop: 3
     },
     field: {
-        borderColor: '#dcdcdc',
+        borderColor: '#ff380',
         borderWidth: 1,
+        marginBottom: 8,
         borderRadius: 2,
         padding: 3,
-        marginBottom: 8
-    }
+        
+    },
+    title: {
+        marginBottom: 9
+    },
+   
 })
 //CON  EL posteo creado voy a ir a la home, pantalla principal y lo que voy a hacr en ele component dismount d ela hjome voy a estar trayendo todo lo que tiene la coleccion de posteos 
 //que dice (sigo en home)

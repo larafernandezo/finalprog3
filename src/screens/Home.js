@@ -47,7 +47,7 @@ class Home extends Component {
         console.log(this.state.posts);
         return(
             <View>
-                <Text> Home</Text>
+                <Text> Bienvenido, estas en Home</Text>
                 <Text> Lista de posteos </Text>
          
         
