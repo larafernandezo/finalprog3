@@ -1,66 +1,61 @@
 import React, { Component } from 'react';
-import {auth, db} from '../firebase/config';
-import {Text, FlatList, View} from 'react-native';
+import { View, Text, FlatList,  StyleSheet} from 'react-native';
 import Post from '../components/Post';
+import { db } from '../firebase/config'
 
-class Home extends Component {
-    constructor(){
-        super();
+
+class Posts extends Component {
+
+    constructor(props) {
+        super(props)
         this.state = {
-            posts: [],
-
+            posteos: [],
         }
     }
-//aca dice coleccion posts on sanpchot , voy armando un edstado con la variable qu epueda terminar en el estado a post
-//Con esa variable van a estar los post
-//con ese estado 
-//estoy trayendo todo lo que tengga la coleccion de posteos 
+    
     componentDidMount() {
         db.collection('posts').onSnapshot(
             docs => {
-                 //console.log(docs);
-                let posts = []; //armo una varible con estado y acavan a estra todos los datos
+                let posts = [];
                 docs.forEach(doc => {
                     posts.push({
                         id: doc.id,
                         data: doc.data()
                     })
-                    this.setState({
-                        posts: posts
-                    })
                 })
-
-            }
-        )
+                this.setState({
+                    posteos: posts,
+                })
+            })
     }
 
-
-    //con ese estado voy a crear una flat list que lo que va a hacer es renderizar un componente post al que vamos a pasar la informacion de item 
-//CUANDO REDEricemos en el renderItem el temrino que va ahi siempr e es ITEM no lo podemos cambiar por posts
-// por q estamos desestructurando item derenderItem. Por eso depsues lo que hago es pasarle a ese item como informacion al posteo 
-//el componente post le paso todo lo que yo recibo en ese elemnto item 
-//como llega por props despues lo puedo procesar. Vamos al componente post ahora. solo para el ejemplo de la clase
-//Vamos a hacer dos cosas con la flatlist vamoos a armar una lista cortita para q retorne una lista de texto
-//despues vamos a hacer que esa flatlist renderice ottrocomponente  al cual le vamos a pasar ptops para q se puedan ver 
-//
-    render(){
-        console.log(this.state.posts);
-        return(
-            <View>
-                <Text> Bienvenido, estas en Home</Text>
-                <Text> Lista de posteos </Text>
-         
-        
-                    <FlatList 
-                        data={this.state.posts}
-                        keyExtractor={ onePost => onePost.id.toString()}
-                        renderItem={ ({item}) => <Post postData={item} />}
-                    />        
-                
+    render() {
+        return (
+          //prueba1 descomento para ver si funca
+            <View style={styles.view}>
+            <Text style={styles.title}> Lista de posteos</Text>
+            <FlatList 
+                    data={this.state.posteos}
+                    keyExtractor={ item => item.id.toString()}
+                    renderItem={ ({item}) => <Post postData={item} navigation={this.props.navigation} id={item.id}/>}
+            />  
             </View>
-//en la flatlist estoy renderizando lo q le voy a pasar een el componente post 
         )
     }
 }
+const styles = StyleSheet.create({
+    
+   title:{
+        fontFamily: 'Playfair Display',
+        fontSize: 40,   
+        fontWeight:'bold',
+        textAlign:'center',
+        color:'purple',
+        
+    },
+    view:{
+        flex:1
+    }
+})
 
-export default Home;
+export default Posts;

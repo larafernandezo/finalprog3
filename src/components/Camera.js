@@ -25,8 +25,7 @@ class MyCamera extends Component {
     }
 
     takePicture() {
-        this.metodosDeCamera.takePictureAsync()
-            .then(photo => {
+        this.metodosDeCamera.takePictureAsync()            .then(photo => {
                 this.setState({
                     photo: photo.uri, //Es una uri interna temporal de la photo.
                     showCamera: false
