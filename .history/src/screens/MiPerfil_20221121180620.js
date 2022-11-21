@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         color: "red"
     },
-    phot: {
+    foto: {
         width: 250,
         height: 250
     }

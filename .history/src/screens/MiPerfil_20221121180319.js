@@ -72,7 +72,7 @@ logout() {
                 <Text> {this.state.user[0].data.owner} </Text> 
                 <Text> {this.state.user[0].data.biografia} </Text> 
                 <Image
-                style={styles.photo}
+                style={styles.foto}
                 source={{ uri: this.state.user.photo }}
                 resizeMode='contain'
                 />
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         color: "red"
     },
-    phot: {
+    foto: {
         width: 250,
         height: 250
     }
