@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList,  StyleSheet} from 'react-native';
+import { View, Text, FlatList,  StyleSheet, TextInput} from 'react-native';
 import Post from '../components/Post';
 import { db } from '../firebase/config'
 
@@ -46,10 +46,10 @@ class Posts extends Component {
 const styles = StyleSheet.create({
     
    title:{
-        fontFamily: 'Playfair Display',
         fontSize: 40,   
         fontWeight:'bold',
         textAlign:'center',
+        fontFamily: 'Playfair Display',
         color:'purple',
         
     },

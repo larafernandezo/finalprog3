@@ -129,7 +129,7 @@ const styles= StyleSheet.create ({
     },
     text:{
     marginTop: 0,
-    fontFamily: 'Sans Serif',
+    fontFamily: 'Playfair Display',
     fontSize:18,
     color:'black', 
     marginLeft:'0'   
@@ -154,7 +154,7 @@ const styles= StyleSheet.create ({
         padding: 5 
     },
     user:{
-        fontFamily: 'Sans Serif',
+        fontFamily: 'Playfair Display',
         color:'black',
         fontSize:20,
     

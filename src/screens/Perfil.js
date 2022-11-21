@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {auth, db} from '../firebase/config'
-import {View, Text, TouchableOpacity, StyleSheet, Image} from "react-native";
+import {View, Text, StyleSheet, Image} from "react-native";
 import {FlatList} from "react-native-web"
 import Post from "../components/Post";
 
@@ -10,7 +10,7 @@ class Perfil extends Component {
         super(props)
         this.state = {
             user:[],
-            posts:[],
+            posteos:[],
             email:'',
             bio:'',
 

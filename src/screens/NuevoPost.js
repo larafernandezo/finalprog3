@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {Text, StyleSheet, TextInput, TouchableOpacity,View} from 'react-native';
 import {auth, db} from '../firebase/config';
 import MyCamera from "../components/Camera";
-import Post from '../components/Post';
 
 
 //Tenemos un componente que es  un componente con estado (nueevopost).

@@ -1,6 +1,5 @@
 import {Text, FlatList, View, StyleSheet, TouchableOpacity, Image} from 'react-native'
 import {auth, db} from '../firebase/config';
-import firebase from 'firebase';
 import React, { Component } from 'react';
 import Post from '../components/Post'
 
@@ -81,7 +80,7 @@ logout() {
             }
 
 
-            <Text> Lista de sus {this.state.posts.length} posteos  </Text>
+            <Text> Mis {this.state.posts.length} posteos  </Text>
             <FlatList 
                 data={this.state.posts}
                 keyExtractor={ onePost => onePost.id.toString()}
