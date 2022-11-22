@@ -72,7 +72,7 @@ class NuevoPost extends Component{
                 :
                 <View style={styles.container}>
                     <Text> Nuevo posteo form</Text>
-                    <View>
+                    
                         <TextInput  
                             placeholder='Descripcion para tu foto'
                             keyboardType='text'

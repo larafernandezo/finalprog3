@@ -74,7 +74,7 @@ class NuevoPost extends Component{
                     <Text> Nuevo posteo form</Text>
                     <View>
                         <TextInput  
-                            placeholder='Descripcion para tu foto'
+                            placeholder='textoPost'
                             keyboardType='text'
                             onChangeText={ text => this.setState({textoPost:text}) }
                             value={this.state.textoPost}

@@ -47,8 +47,7 @@ class MyCamera extends Component {
                         ref.getDownloadURL()//puedo pedirle la url publica de firebase 
                             .then(url => {
                                 console.log(url)//se supone q ;la podemos usar en otro lado
-                                //usamos las props. en la camara 
-                                this.props.onImageUpload(url); //esta url es el resultado del metodo de arriba y como es asincronico termina aca 
+                                this.props.onImageUpload(url);
                             })
                     })
             })

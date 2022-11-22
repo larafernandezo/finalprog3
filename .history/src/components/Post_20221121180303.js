@@ -95,7 +95,7 @@ render(){
              </TouchableOpacity>
             } 
             <Text style={styles.text}> {this.state.likes} likes</Text>
-            <Text style={styles.text}> Descripción: {this.props.postData.data.textoPost} </Text>
+            <Text style={styles.text}> Descripción: {this.props.postData.data.description} </Text>
             {
                 this.props.postData.data.comments ?
                     <React.Fragment>

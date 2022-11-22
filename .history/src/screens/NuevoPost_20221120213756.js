@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, StyleSheet, TextInput, TouchableOpacity,View, Image} from 'react-native';
+import {Text, StyleSheet, TextInput, TouchableOpacity,View} from 'react-native';
 import {auth, db} from '../firebase/config';
 import MyCamera from "../components/Camera";
 
@@ -51,13 +51,13 @@ class NuevoPost extends Component{
             .catch( e => console.log(e))
     }
 
-    onImageUpload(url){//metodo pa que queede parejo, cuando la foto se suba necvesito q me traigas el dato osea una url 
+    onImageUpload(url){
         this.setState({
             photo: url,
             showCamera: false,
         })
     }
-//El render funciona, tengo un formulario para cargar un nuevo post, tine un campo de teext imput 
+//El rendr funciona, tengo un formulario para cargar un nuevo post, tine un campo de teext imput 
 //poner propiedad para transformarlo een textArea 
 //Lo que pasa despues con el this.state vamos a star actualizando l  esatdo  y por ultimo mostrando lo q estamos actualkizando se elo mostramos al usuario
 //Est formulario qu ahora solo tien un campo va a eestar ejecutando un touchabl opacity  con la palabra guardar
@@ -74,7 +74,7 @@ class NuevoPost extends Component{
                     <Text> Nuevo posteo form</Text>
                     <View>
                         <TextInput  
-                            placeholder='Descripcion para tu foto'
+                            placeholder='Description'
                             keyboardType='text'
                             onChangeText={ text => this.setState({textoPost:text}) }
                             value={this.state.textoPost}

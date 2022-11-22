@@ -44,11 +44,10 @@ class MyCamera extends Component {
                 const ref = storage.ref(`photos/${Date.now()}.jpg`)
                 ref.put(image) //ref es un atributo, es una rederencia a esa camara apara despues poder pedirle a esa camara, con put manda la foto al storage
                     .then(() => {
-                        ref.getDownloadURL()//puedo pedirle la url publica de firebase 
+                        ref.getDownloadURL()//puedo pedirle la url publica de firebase
                             .then(url => {
-                                console.log(url)//se supone q ;la podemos usar en otro lado
-                                //usamos las props. en la camara 
-                                this.props.onImageUpload(url); //esta url es el resultado del metodo de arriba y como es asincronico termina aca 
+                                console.log(url)
+                                this.props.onImageUpload(url);
                             })
                     })
             })

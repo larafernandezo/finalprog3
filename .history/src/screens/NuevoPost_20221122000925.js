@@ -72,7 +72,7 @@ class NuevoPost extends Component{
                 :
                 <View style={styles.container}>
                     <Text> Nuevo posteo form</Text>
-                    <View>
+                    
                         <TextInput  
                             placeholder='Descripcion para tu foto'
                             keyboardType='text'
@@ -83,7 +83,7 @@ class NuevoPost extends Component{
                         <TouchableOpacity onPress={()=>this.createPost(this.state.textoPost, this.state.photo)}>
                             <Text>Subir</Text>
                         </TouchableOpacity>
-                    </View>
+                    
                 </View>
             }
             </View>
