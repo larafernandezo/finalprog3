@@ -59,9 +59,9 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
 
     render(){
         return(
-            <View style={styles.container}>
-            <Text style={styles.titulo}>Regístrate</Text>    
-            <View style={styles.form}>
+            <View style={styles.fondo}>
+            <Text style={styles.titulo}>Regístrate en cuestión de segundos</Text>    
+            <View style={styles.caja}>
             <Text style={styles.error}>{this.state.error}</Text>
                     <TextInput 
                         placeholder= 'Cuenta de Email'
@@ -72,7 +72,7 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
                             })
                         }
                         value = {this.state.email}
-                        style={styles.campo}
+                        style={styles.fillin}
                     />
                     <TextInput 
                         placeholder= 'Contraseña'
@@ -80,21 +80,21 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
                         secureTextEntry = {true}
                         onChangeText={ texto => this.setState({contraseña : texto})}
                         value = {this.state.contraseña}
-                        style={styles.campo}
+                        style={styles.fillin}
                     />
                     <TextInput 
                         placeholder= 'Nombre de Usuario'
                         keyboardType= 'default'
                         onChangeText={ texto => this.setState({usuario : texto})}
                         value = {this.state.usuario}
-                        style={styles.campo}
+                        style={styles.fillin}
                     />
                     <TextInput 
                         placeholder= 'Biografía'
                         keyboardType= 'default'
                         onChangeText={ texto => this.setState({biografia : texto})}
                         value = {this.state.bio}
-                        style={styles.campo}
+                        style={styles.fillin}
                     />  
                     {
                         this.state.showCamera ? 
@@ -103,21 +103,21 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
                             </View>
                             :
                             <TouchableOpacity onPress={ () => this.setState({showCamera: true})}> 
-                                <Text style={styles.boton}>Registrarme</Text>
+                                <Text style={styles.cont}>Subir Foto</Text>
                             </TouchableOpacity>
                     }
 
             {
                 this.state.email =="" || this.state.contraseña =="" || this.state.usuario == "" ? 
                     <TouchableOpacity>
-                        <Text style={styles.botonerror}>Registrarme</Text>
+                        <Text style={styles.alerta}>Registrarme</Text>
                     </TouchableOpacity>
                 :
                     <TouchableOpacity onPress={ () => this.registrarUsuario ( this.state.email,  this.state.contraseña, this.state.usuario, this.state.biografia, this.state.imagen)}>
-                        <Text style={styles.boton}>Registrarme</Text>
+                        <Text style={styles.cont}>Registrarme</Text>
                     </TouchableOpacity>
             }
-                    <Text onPress={ () => this.props.navigation.navigate ("Login")} style={styles.link}>¿Ya tenés una cuenta? Iniciar Sesión</Text>
+                    <Text onPress={ () => this.props.navigation.navigate ("Login")} style={styles.switch}>¿Ya tenés una cuenta? Inicia Sesión haciendo click aquí</Text>
                     
                 </View>
             </View>
@@ -125,68 +125,68 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
         )
     }
 }
-
 const styles = StyleSheet.create({
-    container: {
-        flex:1,
-        backgroundColor: 'rgb(234,252,255)',
+    fondo: {
         alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: 'rgb(234, 242, 248)',
     },
     titulo: {
-        fontFamily: 'Courier',
-        fontSize: 22,
-        margin: 20
+        color: 'rgb(52, 152, 219)',
+        fontFamily: 'avenir',
+        fontSize: 26,
+        margin: 60,
     },
-    form:{
-        backgroundColor: 'rgb(94, 171, 194)',
+    caja:{
+        backgroundColor: 'rgb(215, 219, 221)',
         borderRadius: 10,
-        padding: 15
+        padding: 40,
+         
     },
-    error: {
-        fontFamily: 'Courier',
-        fontSize: 10,
+    fillin: {
+        backgroundColor: 'rgb(253, 254, 254)',
+        color: 'rgb(179, 182, 183)',
+        fontFamily: 'avenir',
+        fontSize: 13,
         margin: 10,
-        color: 'rgb(217,33,33)'
-    },
-    campo: {
-        backgroundColor: 'rgb(234,252,255)',
-        fontFamily: 'Courier',
-        fontSize: 14,
-        margin: 8,
-        borderRadius: 10,
+        borderRadius: 6,
         textAlign: 'center',
-        color: 'rgb(115, 115, 115)',
-        padding: 5
+        padding: 5,
+        textAlign: 'left',
     },
-    boton: {
-        fontFamily: 'Courier',
+    cont: {
+        fontFamily: 'avenir',
         fontSize: 14,
         margin: 10,
-        backgroundColor: 'rgb(0,170,228)',
+        backgroundColor: 'rgb(123, 125, 125)',
         borderRadius: 10,
         textAlign: 'center',
-        padding: 5
+        color: 'rgb(234,252,255)',
+        padding: 5,
     },
-    botonerror: {
-        fontFamily: 'Courier',
+    alerta: {
+        fontFamily: 'avenir',
         fontSize: 14,
         margin: 10,
-        backgroundColor: 'rgb(105,105,105)',
+        backgroundColor: 'rgb(52, 152, 219)',
         borderRadius: 10,
         textAlign: 'center',
-        padding: 5
+        padding: 5,
+        color: 'rgb(234,252,255)',
     },
-    link: {
-        fontFamily: 'Courier',
+    switch: {
+        fontFamily: 'avenir',
         fontSize: 10,
         margin: 4,
-        textAlign: 'right'
+        textAlign: 'center',
+        color:'rgb(77, 86, 86)',
     },
-    icono:{
-        height: 120,
-        width: 120
-    }
+    error: {
+        fontFamily: 'avenir',
+        fontSize: 19,
+        margin: 20,
+        color: 'rgb(203, 67, 53)'
+    },
 })
+
 
 export default Registro;

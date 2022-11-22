@@ -34,21 +34,21 @@ class Login extends Component {
 
     render(){
         return(
-            <View style={styles.container}>
+            <View style={styles.fondo}>
 
             <Text style={styles.error}>{this.state.error}</Text>
 
 
-                <Text style={styles.titulo}>Inicia Sesión</Text>
+                <Text style={styles.titulo}>Iniciar Sesión</Text>
 
-                <View style={styles.form}>
+                <View style={styles.caja}>
                 <Text style={styles.error}>{this.state.error}</Text>
                     <TextInput 
                         placeholder= 'Cuenta de Email'
                         keyboardType= 'email-address'
                         onChangeText={ texto => this.setState({email : texto})}
                         value = {this.state.email}
-                        style={styles.campo}
+                        style={styles.fillin}
                     />
                     <TextInput 
                         placeholder= 'Contraseña'
@@ -56,23 +56,23 @@ class Login extends Component {
                         secureTextEntry = {true}
                         onChangeText={ texto => this.setState({contraseña : texto})}
                         value = {this.state.contraseña}
-                        style={styles.campo}
+                        style={styles.fillin}
                     />            
 
 
 {
                 this.state.email =="" || this.state.contraseña =="" ? 
                     <TouchableOpacity>
-                        <Text style={styles.botonerror}>Ingresar</Text>
+                        <Text style={styles.alerta}>Ingresar</Text>
                     </TouchableOpacity>
                 :
                     <TouchableOpacity onPress={ () => this.iniciarUsuario (this.state.email, this.state.contraseña)} >
-                        <Text style={styles.boton}>Ingresar</Text>
+                        <Text style={styles.cont}>Ingresar</Text>
                     </TouchableOpacity>
             
 }
 
-                    <Text onPress={ () => this.props.navigation.navigate ('Registro')} style={styles.link}>¿No tenés una cuenta? Registrate</Text>
+                    <Text onPress={ () => this.props.navigation.navigate ('Registro')} style={styles.switch}>¿No tenés cuenta? Registrate haciendo click aquí</Text>
                 </View>
             </View>
         )
@@ -80,67 +80,67 @@ class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex:1,
-        backgroundColor: 'rgb(234,252,255)',
+    fondo: {
         alignItems: 'center',
-        justifyContent: 'center'
+        backgroundColor: 'rgb(234, 242, 248)',
     },
     titulo: {
-        fontFamily: 'Courier',
-        fontSize: 22,
-        margin: 20
+        color: 'rgb(52, 152, 219)',
+        fontFamily: 'avenir',
+        fontSize: 26,
+        margin: 60,
     },
-    error: {
-        fontFamily: 'Courier',
-        fontSize: 19,
-        margin: 20,
-        color: 'rgb(217,33,33)'
+    caja:{
+        backgroundColor: 'rgb(215, 219, 221)',
+        borderRadius: 6,
+        padding: 20,
+         
     },
-    form:{
-        backgroundColor: 'rgb(94, 171, 194)',
-        borderRadius: 10,
-        padding: 15
-    },
-    campo: {
-        backgroundColor: 'rgb(234,252,255)',
-        fontFamily: 'Courier',
-        fontSize: 14,
-        margin: 8,
-        borderRadius: 10,
+    fillin: {
+        backgroundColor: 'rgb(253, 254, 254)',
+        color: 'rgb(179, 182, 183)',
+        fontFamily: 'avenir',
+        fontSize: 13,
+        margin: 10,
+        borderRadius: 6,
         textAlign: 'center',
-        color: 'rgb(115, 115, 115)',
-        padding: 5
+        padding: 5,
+        textAlign: 'left',
     },
-    boton: {
-        fontFamily: 'Courier',
+    cont: {
+        fontFamily: 'avenir',
         fontSize: 14,
         margin: 10,
         backgroundColor: 'rgb(234,252,255)',
         borderRadius: 10,
         textAlign: 'center',
-        padding: 5
+        padding: 5,
     },
-    botonerror: {
-        fontFamily: 'Courier',
+    alerta: {
+        fontFamily: 'avenir',
         fontSize: 14,
         margin: 10,
-        backgroundColor: 'rgb(105,105,105)',
+        backgroundColor: 'rgb(52, 152, 219)',
         borderRadius: 10,
         textAlign: 'center',
-        padding: 5
+        padding: 5,
+        color: 'rgb(234,252,255)',
     },
-    link: {
-        fontFamily: 'Courier',
+    switch: {
+        fontFamily: 'avenir',
         fontSize: 10,
         margin: 4,
-        textAlign: 'right'
+        textAlign: 'center',
+        color:'rgb(77, 86, 86)',
     },
-    icono:{
-        height: 180,
-        width: 180
-    }
+    error: {
+        fontFamily: 'avenir',
+        fontSize: 19,
+        margin: 20,
+        color: 'rgb(203, 67, 53)'
+    },
 })
+
 
 
 export default Login;
