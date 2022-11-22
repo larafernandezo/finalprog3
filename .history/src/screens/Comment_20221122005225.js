@@ -62,7 +62,9 @@ class Comentario extends Component {
     return (
       <View style={styles.container}>
         <Text>{this.state.data.textoPost}</Text>
-        
+        {this.state.data.textoPos == undefined ?
+        <Text></Text>:
+        }
         <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
         <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
         <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario}/>

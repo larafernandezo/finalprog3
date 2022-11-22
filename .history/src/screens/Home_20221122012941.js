@@ -50,8 +50,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         textAlign:'center',
         fontFamily: 'cursive',
-        color: 'rgb(100, 149, 237)'
-        
+        color: 'rgb(32, 178, 170
     },
     view:{
         flex:1

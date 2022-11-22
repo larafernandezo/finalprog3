@@ -139,7 +139,7 @@ const styles= StyleSheet.create ({
     img:{
         height:350,
         width:350,
-        border: '10px solid gainsboro',
+        border: '5px solid cornflowerblue',
         borderRadius:4 ,
         padding: 5,
         alignItems:'center'
@@ -151,7 +151,7 @@ const styles= StyleSheet.create ({
         marginTop: 2,
     },button:{
         backgroundColor: 'black',
-        color: 'black',
+        color: 'grey',
         border: 'none',
         padding: 5 
     },

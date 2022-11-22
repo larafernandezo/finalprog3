@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         textAlign:'center',
         fontFamily: 'cursive',
-        color: 'rgb(100, 149, 237)'
+        color: 'rgb(144, 238, 144)'
         
     },
     view:{

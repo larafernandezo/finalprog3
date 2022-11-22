@@ -88,11 +88,11 @@ render(){
                 this.state.myLike ?
                 
             <TouchableOpacity style={styles.like} onPress={()=> this.unLike()} >
-                <FontAwesome name='heart' color='cornflowerblue' size={35} />
+                <FontAwesome name='heart' color='purple' size={35} />
             </TouchableOpacity>
                 :
              <TouchableOpacity style={styles.like} onPress={()=> this.like()} >
-                <FontAwesome name='heart-o' color='cornflowerblue' size={35} />
+                <FontAwesome name='heart-o' color='purple' size={35} />
              </TouchableOpacity>
             } 
             <Text style={styles.text}> {this.state.likes} likes</Text>
@@ -102,7 +102,6 @@ render(){
                    
                        
                         <Text>No hay comentarios, comenta primero</Text>
-                        :
                         <React.Fragment>
                         <FlatList
                             data={this.props.postData.data.comments.slice(-4)}
@@ -111,14 +110,15 @@ render(){
                         /> 
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment', {id: this.props.id})}>Más comentarios</TouchableOpacity>
                     </React.Fragment>
-                    
             }
                     <TextInput keyboardType='default'
                         placeholder='Escribí tu comentario'
                         onChangeText={(text) => { this.setState({ comment: text }) }}
                         value={this.state.comment}
                     />
-                         
+                    <TouchableOpacity onPress={() => this.publicarComentario()}>
+                        <Text style={styles.button} >Comentar</Text>
+                    </TouchableOpacity>       
         </View>
     )
 }
@@ -131,7 +131,7 @@ const styles= StyleSheet.create ({
     },
     text:{
     marginTop: 0,
-    fontFamily: 'avenir',
+    fontFamily: 'Playfair Display',
     fontSize:18,
     color:'black', 
     marginLeft:'0'   
@@ -139,7 +139,7 @@ const styles= StyleSheet.create ({
     img:{
         height:350,
         width:350,
-        border: '10px solid gainsboro',
+        border: '3px solid #dd',
         borderRadius:4 ,
         padding: 5,
         alignItems:'center'
@@ -151,15 +151,15 @@ const styles= StyleSheet.create ({
         marginTop: 2,
     },button:{
         backgroundColor: 'black',
-        color: 'black',
+        color: 'grey',
         border: 'none',
         padding: 5 
     },
     user:{
-        fontFamily: 'avenir',
+        fontFamily: 'Playfair Display',
         color:'black',
-        fontSize:18,
-
+        fontSize:20,
+    
         marginRight:'40%',
         width:"100%",
         borderRadius:4

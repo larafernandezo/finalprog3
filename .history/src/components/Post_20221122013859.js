@@ -88,11 +88,11 @@ render(){
                 this.state.myLike ?
                 
             <TouchableOpacity style={styles.like} onPress={()=> this.unLike()} >
-                <FontAwesome name='heart' color='cornflowerblue' size={35} />
+                <FontAwesome name='heart' color='purple' size={35} />
             </TouchableOpacity>
                 :
              <TouchableOpacity style={styles.like} onPress={()=> this.like()} >
-                <FontAwesome name='heart-o' color='cornflowerblue' size={35} />
+                <FontAwesome name='heart-o' color='lightseagreen' size={35} />
              </TouchableOpacity>
             } 
             <Text style={styles.text}> {this.state.likes} likes</Text>
@@ -139,7 +139,7 @@ const styles= StyleSheet.create ({
     img:{
         height:350,
         width:350,
-        border: '10px solid gainsboro',
+        border: 5px solid red,
         borderRadius:4 ,
         padding: 5,
         alignItems:'center'
@@ -151,7 +151,7 @@ const styles= StyleSheet.create ({
         marginTop: 2,
     },button:{
         backgroundColor: 'black',
-        color: 'black',
+        color: 'grey',
         border: 'none',
         padding: 5 
     },

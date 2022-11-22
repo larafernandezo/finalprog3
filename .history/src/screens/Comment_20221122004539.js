@@ -61,16 +61,23 @@ class Comentario extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.state.data.textoPost}</Text>
-        
+        <Text>{this.state.data.Description}</Text>
+        <View style={styles.container}>
+        <Text style={styles.texto}>Comentarios del posteo</Text>
+        {
+          this.state.comentario == undefined?
+          <Text></Text>:
+          this.state.comentario.length == 0 ?
+          <Text style={styles.texto2}>No hay comentarios, se el primero en comentar</Text>:
         <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
         <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
         <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario}/>
         <TouchableOpacity onPress={() => this.publicarComentario()}>
             <Text style={styles.button} >Comentar</Text>
         </TouchableOpacity>
-      </View>
+      </View> 
     );
+        
   }
 }
 

@@ -139,7 +139,7 @@ const styles= StyleSheet.create ({
     img:{
         height:350,
         width:350,
-        border: '10px solid gainsboro',
+        border: '10px solid darkgray',
         borderRadius:4 ,
         padding: 5,
         alignItems:'center'

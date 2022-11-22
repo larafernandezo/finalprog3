@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
         fontSize: 40,   
         fontWeight:'bold',
         textAlign:'center',
-        fontFamily: 'cursive',
-        color: 'rgb(100, 149, 237)'
+        fontFamily: 'avenir',
+        color: 'rgb(234,252,255)',
         
     },
     view:{
