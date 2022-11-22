@@ -25,8 +25,7 @@ componentDidMount() {
 
 like(){
     //agregar mi mailal array
-    db.collection('posts')
-    .doc(this.props.postData.id).update({
+    db.collection('posts').doc(this.props.postData.id).update({
         likes: firebase.firestore.FieldValue.arrayUnion (auth.currentUser.email)
     })
     .then(()=> this.setState({
@@ -82,7 +81,7 @@ render(){
             </TouchableOpacity>
             <Image
                 style={styles.img}
-                source={{uri: this.props.postData.data.photo}} 
+                source={{uri: this.props.postData.data.url}} 
             />
             {
                 this.state.myLike ?

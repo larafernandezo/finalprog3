@@ -25,8 +25,7 @@ componentDidMount() {
 
 like(){
     //agregar mi mailal array
-    db.collection('posts')
-    .doc(this.props.postData.id).update({
+    db.collection('posts').doc(this.props.postData.id).update({
         likes: firebase.firestore.FieldValue.arrayUnion (auth.currentUser.email)
     })
     .then(()=> this.setState({
@@ -80,10 +79,11 @@ render(){
             <TouchableOpacity onPress={() => this.props.navigation.navigate('OtherProfile', {email: this.props.postData.data.owner})}>
             <Text  style={styles.user}>Subido por: {this.props.postData.data.owner} </Text>
             </TouchableOpacity>
-            <Image
-                style={styles.img}
-                source={{uri: this.props.postData.data.photo}} 
-            />
+
+                        <Image style={styles.preview}
+                            source={{ uri: this.state.photo }}
+                            resizeMode = 'cover'
+                        />
             {
                 this.state.myLike ?
                 

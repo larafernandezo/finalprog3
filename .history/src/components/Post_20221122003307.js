@@ -82,7 +82,7 @@ render(){
             </TouchableOpacity>
             <Image
                 style={styles.img}
-                source={{uri: this.props.postData.data.photo}} 
+                source={{uri: this.props.postData.data.url}} 
             />
             {
                 this.state.myLike ?

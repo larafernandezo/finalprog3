@@ -25,8 +25,7 @@ componentDidMount() {
 
 like(){
     //agregar mi mailal array
-    db.collection('posts')
-    .doc(this.props.postData.id).update({
+    db.collection('posts').doc(this.props.postData.id).update({
         likes: firebase.firestore.FieldValue.arrayUnion (auth.currentUser.email)
     })
     .then(()=> this.setState({
@@ -82,7 +81,7 @@ render(){
             </TouchableOpacity>
             <Image
                 style={styles.img}
-                source={{uri: this.props.postData.data.photo}} 
+                source={{uri: this.props.postData.data.url}} 
             />
             {
                 this.state.myLike ?
@@ -105,7 +104,7 @@ render(){
                             keyExtractor={post => post.createdAt.toString()}
                             renderItem={({ item }) => <Text> {item.author}: {item.commentText}</Text>}
                         /> 
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment', {id: this.props.id})}>Más comentarios</TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Com', {id: this.props.id})}>Más comentarios</TouchableOpacity>
                     </React.Fragment>
                         :
                         <Text>No hay comentarios</Text>
