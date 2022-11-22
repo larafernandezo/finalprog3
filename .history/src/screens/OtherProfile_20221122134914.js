@@ -9,7 +9,7 @@ class OtherProfile extends Component {
         super(props)
         this.state = {
             user: [],
-            user: '',
+            us: '',
             biografia: '',
             email: '',
             photo: '',

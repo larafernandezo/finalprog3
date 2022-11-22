@@ -27,6 +27,7 @@ function App() {
         <Stack.Screen name="Comment" component={Comment} options={{ headerShown: false }} />
         <Stack.Screen name="OtherProfile" component={OtherProfile} options={{ headerShown: false }} />
         <Stack.Screen name="MyCamera" component={MyCamera} options={{ headerShown: false }} />
+        <Stack.Screen name="Perfil" component={MyCamera} options={{ headerShown: false }} />
 
       </Stack.Navigator>
     </NavigationContainer>

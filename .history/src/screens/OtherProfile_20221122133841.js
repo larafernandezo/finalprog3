@@ -9,7 +9,7 @@ class OtherProfile extends Component {
         super(props)
         this.state = {
             user: [],
-            user: '',
+            usuario: '',
             biografia: '',
             email: '',
             photo: '',
@@ -79,12 +79,11 @@ class OtherProfile extends Component {
                         source={{ uri: this.state.photo }}
                     />
                     <Text style={styles.text}>Nombre del usuario:{this.state.nombre}</Text>
-                    <Text style={styles.text} >Usuario:{this.state.user}</Text>
+                    <Text style={styles.text} >Usuarr:{this.state.usuario}</Text>
                     <Text style={styles.text} >Bio:{this.state.biografia}</Text>
                     <TouchableOpacity onPress={() => this.logOut()}>
                         <Text style={styles.button} >  <button>Logout</button></Text>
                     </TouchableOpacity>
-                    
                 </View>
                 <FlatList
                     data={this.state.posteos}

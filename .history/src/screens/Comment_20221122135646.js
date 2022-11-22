@@ -64,9 +64,9 @@ class Comment extends Component {
       <View style={styles.container}>
         <AntDesign name="left" size={24} color="black" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
         <Text style={styles.descripcion}>{this.state.data.Description}</Text>
-        <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
-        <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
-        <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario} style={styles.input}/>
+        <FlatList data={this.state.data.commentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
+        <Text> {" "} {item.author}: {item.commentText} </Text>)}/>
+        <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.coment} style={styles.input}/>
         <TouchableOpacity onPress={() => this.publicarComentario()}>
             <Text style={styles.button}>Comentar</Text>
         </TouchableOpacity>
@@ -86,10 +86,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightblue',
     borderRadius: '5%'
   },
-  textoPost: {
-    fontWeight: 'bold',
-    margin: '4%'
-},
   input: {
     borderRadius: 5,
     backgroundColor: 'white',
@@ -101,7 +97,10 @@ const styles = StyleSheet.create({
   back: {
     margin: '4%'
   },
-  
+  textoPost: {
+      fontWeight: 'bold',
+      margin: '4%'
+  }
 });
 
 export default Comment;
