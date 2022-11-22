@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   back: {
     margin: '4%'
   },
-  textoPost: {
+  description: {
       fontWeight: 'bold',
       margin: '4%'
   }

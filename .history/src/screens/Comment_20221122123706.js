@@ -62,7 +62,8 @@ class Comment extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.textoPost}>{this.state.data.Description}</Text>
+       
+        <Text style={styles.textoPost}>{this.state.data.textoPost}</Text>
         <AntDesign name="left" size={24} color="#b8eb91" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
         <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
         <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
@@ -79,28 +80,15 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
     marginTop: 10,
+    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    height: "100%",
   },
-  button: {
-    backgroundColor: 'lightblue',
-    borderRadius: '5%'
+  logo: {
+    width: 500,
+    height: 500,
   },
-  input: {
-    borderRadius: 5,
-    backgroundColor: 'white',
-    width: '80%',
-    height: '5%',
-    padding: '5%',
-    margin: '8%'
-  },
-  back: {
-    margin: '4%'
-  },
-  textoPost: {
-      fontWeight: 'bold',
-      margin: '4%'
-  }
 });
 
 export default Comment;

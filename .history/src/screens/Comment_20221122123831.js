@@ -79,28 +79,15 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
     marginTop: 10,
+    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    height: "100%",
   },
-  button: {
-    backgroundColor: 'lightblue',
-    borderRadius: '5%'
+  logo: {
+    width: 500,
+    height: 500,
   },
-  input: {
-    borderRadius: 5,
-    backgroundColor: 'white',
-    width: '80%',
-    height: '5%',
-    padding: '5%',
-    margin: '8%'
-  },
-  back: {
-    margin: '4%'
-  },
-  textoPost: {
-      fontWeight: 'bold',
-      margin: '4%'
-  }
 });
 
 export default Comment;

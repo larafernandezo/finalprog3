@@ -17,7 +17,7 @@ class Comment extends Component {
   }
 
   componentDidMount() {
-    db.collection("posts").doc(this.state.id).onSnapshot((doc) => {
+    db.collection("posts").doc(this.state.id)..onSnapshot((doc) => {
         this.setState({
           data: doc.data(),
         });8    

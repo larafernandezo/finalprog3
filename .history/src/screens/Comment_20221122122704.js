@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, FlatList, TextInput, TouchableOpacity } from "react-native";
 import { db, auth } from "../firebase/config";
 import firebase from 'firebase';
-import { AntDesign } from '@expo/vector-icons';
 
 //para usarflatlist lo primeero que nescesigamos ees un estado con datos 
 class Comment extends Component {
@@ -62,11 +61,11 @@ class Comment extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.textoPost}>{this.state.data.Description}</Text>
-        <AntDesign name="left" size={24} color="#b8eb91" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
+        <Text style>{this.state.data.textoPost}</Text>
+        
         <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
         <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
-        <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario}style={styles.input}/>
+        <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario}/>
         <TouchableOpacity onPress={() => this.publicarComentario()}>
             <Text style={styles.button} >Comentar</Text>
         </TouchableOpacity>
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   button: {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'pink',
     borderRadius: '5%'
   },
   input: {
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
   back: {
     margin: '4%'
   },
-  textoPost: {
+  description: {
       fontWeight: 'bold',
       margin: '4%'
   }

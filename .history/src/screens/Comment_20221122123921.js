@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   button: {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'ppurple',
     borderRadius: '5%'
   },
   input: {
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   back: {
     margin: '4%'
   },
-  textoPost: {
+  description: {
       fontWeight: 'bold',
       margin: '4%'
   }

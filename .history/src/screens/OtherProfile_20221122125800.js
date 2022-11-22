@@ -43,7 +43,7 @@ class OtherProfile extends Component {
                 });
             }
         )
-        db.collection('posts').where('owner', '==', email).orderBy('createdAt', 'asc').onSnapshot(
+        db.collection('posts').where('owner', '==', email.onSnapshot(
             docs => {
                 let posts = [];
 

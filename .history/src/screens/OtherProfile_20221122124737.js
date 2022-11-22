@@ -43,7 +43,7 @@ class OtherProfile extends Component {
                 });
             }
         )
-        db.collection('posts').where('owner', '==', email).orderBy('createdAt', 'asc').onSnapshot(
+        db.collection('posts').where('owner', '==', email).onSnapshot(
             docs => {
                 let posts = [];
 
@@ -75,7 +75,7 @@ class OtherProfile extends Component {
                 <AntDesign name="left" size={24} color="black" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
                 <View style={styles.containerBio}>
                     <Image
-                        style={styles.photo}
+                        style={styles.phot}
                         source={{ uri: this.state.photo }}
                     />
                     <Text style={styles.text}>Nombre del usuario:{this.state.nombre}</Text>
