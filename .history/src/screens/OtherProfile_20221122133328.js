@@ -32,7 +32,7 @@ class OtherProfile extends Component {
                     if (data.owner === email) {
                         user = data
 
-                    }
+                    }console.log()
                 });
 
                 this.setState({

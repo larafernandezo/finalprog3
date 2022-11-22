@@ -71,7 +71,7 @@ class Comment extends Component {
             <Text style={styles.button} >Comentar</Text>
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 

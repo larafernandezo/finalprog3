@@ -9,7 +9,7 @@ class OtherProfile extends Component {
         super(props)
         this.state = {
             user: [],
-            usuario: '',
+            user: '',
             biografia: '',
             email: '',
             photo: '',
@@ -39,7 +39,7 @@ class OtherProfile extends Component {
                     nombre: user.owner,
                     user: user.user,
                     biografia: user.biografia,
-                   // photo: usuario.photo
+                    photo: user.photo
                 });
             }
         )

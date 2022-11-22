@@ -39,7 +39,7 @@ class OtherProfile extends Component {
                     nombre: user.owner,
                     user: user.user,
                     biografia: user.biografia,
-                   // photo: usuario.photo
+                    photo: usuario.photo
                 });
             }
         )
