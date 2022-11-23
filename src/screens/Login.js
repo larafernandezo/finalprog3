@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         fontFamily: 'avenir',
         fontSize: 14,
         margin: 10,
-        backgroundColor: 'rgb(52, 152, 219)',
+        backgroundColor: 'rgb(212, 230, 241)',
         borderRadius: 10,
         textAlign: 'center',
         padding: 5,

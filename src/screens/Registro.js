@@ -6,7 +6,6 @@ import MyCamera from '../components/Camera';
 class Registro extends Component {
     constructor(){
         super()
-        //Seteamos un state inicial cero para lograr los inputs vacios. Tambien creamos propiedad errors para el catch//
         this.state = {
             email: "",
             contraseña: "",
@@ -24,11 +23,8 @@ onImageUpload(url){
     })
 }
 registrarUsuario(email,contra, usuario, biografia, imagen){
-    //Lo que queremos hacer es registrar en Firebase que damos de alta al usuario y si el registro sale bien entonces redireccionar a Login //
-    //Hacemos uso de auth de firebase y aprovechamos el método createUserWithEmailAndPassword con los parámetros obligatorios que son email y pass//
     auth.createUserWithEmailAndPassword(email,contra)
         .then(res =>{
-            //Este método es asincronico por lo que retorna una promise, si se cumple la promise entonces tenemos sucede un then. En el then hacemos uso de add para agregar la coleccion users y dar de alta al usuario con los valores propios de este usuari//
                 db.collection("users").add({
                     owner:email,
                     usuario: usuario, 
@@ -36,7 +32,6 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
                     imagen:imagen,
                     fechaCreacion: Date.now()
                 })
-                //Add tambien retorna una promesa por lo que si se cumple devolverá lo que suceda en el then
                 .then(()=>{
                     this.setState({
                         email: "",
@@ -46,7 +41,6 @@ registrarUsuario(email,contra, usuario, biografia, imagen){
                         imagen: "",
                         error: ""
                     })
-                    //Redireccionamiento a login//
                     this.props.navigation.navigate("Login")
                 })
                 .catch(error => console.log(error))    
@@ -167,7 +161,7 @@ const styles = StyleSheet.create({
         fontFamily: 'avenir',
         fontSize: 14,
         margin: 10,
-        backgroundColor: 'rgb(52, 152, 219)',
+        backgroundColor: 'rgb(212, 230, 241)',
         borderRadius: 10,
         textAlign: 'center',
         padding: 5,
