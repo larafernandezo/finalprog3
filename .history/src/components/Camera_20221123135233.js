@@ -43,10 +43,10 @@ class MyCamera extends Component {
                 const ref = storage.ref(`photos/${Date.now()}.jpg`)
                 ref.put(image) //ref, put s
                     .then(() => {
-                        ref.getDownloadURL()
+                        ref.getDownloadURL()//puedo pedirle la url publica de firebase 
                             .then(url => {
-                                console.log(url)
-                                this.props.onImageUpload(url); 
+                                console.log(url)//se supone q ;la podemos usar en otro lado
+                                this.props.onImageUpload(url); //esta url es el resultado del metodo de arriba y como es asincronico termina aca 
                             })
                     })
             })
@@ -86,9 +86,10 @@ class MyCamera extends Component {
 
                         <Camera
                             style={styles.cameraBody}
-                            type={Camera.Constants.Type.front}//yo puse front xq quiero q sea pal cel 
-                            ref={metodosDeCamera => this.metodosDeCamera = metodosDeCamera}
-                           
+                            type={Camera.Constants.Type.front}//yo puse back xq quiero q sea pal cel 
+                            ref={metodosDeCamera => this.metodosDeCamera = metodosDeCamera} //esta ref va a buscatr esee componenete
+                            //meetodosDecamara es el parametro, le paso una arrowfunction
+                            //que lo q hace es asignar a thi.metodosdecamara lo que tengo en ese parametro 
                         />
                         
                         <TouchableOpacity

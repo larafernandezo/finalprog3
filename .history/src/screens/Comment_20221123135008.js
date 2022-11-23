@@ -31,6 +31,7 @@ class Comment extends Component {
         createdAt: Date.now(),
         comentarioTexto: this.state.comentario
     }
+    //Actualizar comentario en la base. Puntualmente en este documento.
     db.collection('posts').doc(this.state.id).update({
         comentarios: firebase.firestore.FieldValue.arrayUnion(unComentario)
     })

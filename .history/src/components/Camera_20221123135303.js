@@ -86,9 +86,10 @@ class MyCamera extends Component {
 
                         <Camera
                             style={styles.cameraBody}
-                            type={Camera.Constants.Type.front}//yo puse front xq quiero q sea pal cel 
-                            ref={metodosDeCamera => this.metodosDeCamera = metodosDeCamera}
-                           
+                            type={Camera.Constants.Type.front}//yo puse back xq quiero q sea pal cel 
+                            ref={metodosDeCamera => this.metodosDeCamera = metodosDeCamera} //esta ref va a buscatr esee componenete
+                            //meetodosDecamara es el parametro, le paso una arrowfunction
+                            //que lo q hace es asignar a thi.metodosdecamara lo que tengo en ese parametro 
                         />
                         
                         <TouchableOpacity

@@ -3,8 +3,6 @@ import {Text, StyleSheet, TextInput, TouchableOpacity,View} from 'react-native';
 import {auth, db} from '../firebase/config';
 import MyCamera from "../components/Camera";
 
-
-
 class NuevoPost extends Component{
     constructor(props){
         super(props)
@@ -20,7 +18,7 @@ class NuevoPost extends Component{
    
     createPost(texto, photo){
         db.collection('posts').add({
-                owner: auth.currentUser.email, 
+                owner: auth.currentUser.email, //deberia ser el usuario registrado. auth.currentUser
                 textoPost: texto,
                 photo: photo,
                 likes:[],

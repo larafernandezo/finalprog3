@@ -38,15 +38,16 @@ class MyCamera extends Component {
 
     savePhoto() {
         fetch(this.state.photo)
-            .then(res => res.blob())
+            .then(res => res.blob())//blob amiga BLOB diosa amiga, nos quedamos en la foto con formato binario 3
             .then(image => {//podemos trabajar con el dato final
+                //La constante crea l detino y nombre con el que se guarda la foto en storage
                 const ref = storage.ref(`photos/${Date.now()}.jpg`)
-                ref.put(image) //ref, put s
+                ref.put(image) //ref es un atributo, es una rederencia a esa camara apara despues poder pedirle a esa camara, con put manda la foto al storage
                     .then(() => {
-                        ref.getDownloadURL()
+                        ref.getDownloadURL()//puedo pedirle la url publica de firebase 
                             .then(url => {
-                                console.log(url)
-                                this.props.onImageUpload(url); 
+                                console.log(url)//se supone q ;la podemos usar en otro lado
+                                this.props.onImageUpload(url); //esta url es el resultado del metodo de arriba y como es asincronico termina aca 
                             })
                     })
             })
@@ -86,9 +87,10 @@ class MyCamera extends Component {
 
                         <Camera
                             style={styles.cameraBody}
-                            type={Camera.Constants.Type.front}//yo puse front xq quiero q sea pal cel 
-                            ref={metodosDeCamera => this.metodosDeCamera = metodosDeCamera}
-                           
+                            type={Camera.Constants.Type.front}//yo puse back xq quiero q sea pal cel 
+                            ref={metodosDeCamera => this.metodosDeCamera = metodosDeCamera} //esta ref va a buscatr esee componenete
+                            //meetodosDecamara es el parametro, le paso una arrowfunction
+                            //que lo q hace es asignar a thi.metodosdecamara lo que tengo en ese parametro 
                         />
                         
                         <TouchableOpacity

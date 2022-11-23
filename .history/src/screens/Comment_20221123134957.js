@@ -31,6 +31,8 @@ class Comment extends Component {
         createdAt: Date.now(),
         comentarioTexto: this.state.comentario
     }
+    //Actualizar comentario en la base. Puntualmente en este documento.
+    //Saber cual es el post que queremos actualizar
     db.collection('posts').doc(this.state.id).update({
         comentarios: firebase.firestore.FieldValue.arrayUnion(unComentario)
     })
@@ -45,7 +47,10 @@ class Comment extends Component {
 
 
 
-
+//AHora podemos renderizae un componente, pasarle props
+// Armamos un view para q no rompa yl eeponemos ele text y la flatlist
+//flat tiene sus 3 domponentes data, key xtractor y y el otro es render item 
+//
   render() {
     return (
       <View style={styles.container}>

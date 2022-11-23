@@ -30,8 +30,7 @@ class Comment extends Component {
         author: auth.currentUser.email,
         createdAt: Date.now(),
         comentarioTexto: this.state.comentario
-    }
-    db.collection('posts').doc(this.state.id).update({
+    }    db.collection('posts').doc(this.state.id).update({
         comentarios: firebase.firestore.FieldValue.arrayUnion(unComentario)
     })
         .then(() => {

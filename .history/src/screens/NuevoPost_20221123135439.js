@@ -4,6 +4,8 @@ import {auth, db} from '../firebase/config';
 import MyCamera from "../components/Camera";
 
 
+//Tenemos un componente que es  un componente con estado (nueevopost).
+
 
 class NuevoPost extends Component{
     constructor(props){
@@ -20,7 +22,7 @@ class NuevoPost extends Component{
    
     createPost(texto, photo){
         db.collection('posts').add({
-                owner: auth.currentUser.email, 
+                owner: auth.currentUser.email, //deberia ser el usuario registrado. auth.currentUser
                 textoPost: texto,
                 photo: photo,
                 likes:[],
@@ -38,7 +40,7 @@ class NuevoPost extends Component{
             .catch( e => console.log(e))
     }
 
-    onImageUpload(url){
+    onImageUpload(url){//metodo pa que queede parejo, cuando la foto se suba necvesito q me traigas el dato osea una url 
         this.setState({
             photo: url,
             showCamera: false,

@@ -4,6 +4,8 @@ import {auth, db} from '../firebase/config';
 import MyCamera from "../components/Camera";
 
 
+//Tenemos un componente que es  un componente con estado (nueevopost).
+
 
 class NuevoPost extends Component{
     constructor(props){
@@ -17,17 +19,20 @@ class NuevoPost extends Component{
         }
     }
 
-   
+   rray de comentarios, por lo pronto estan  vacios.
     createPost(texto, photo){
         db.collection('posts').add({
-                owner: auth.currentUser.email, 
+                owner: auth.currentUser.email, //deberia ser el usuario registrado. auth.currentUser
                 textoPost: texto,
                 photo: photo,
                 likes:[],
                 comments:[],
                 createdAt: Date.now()
             })
-
+            //Aabajo teenemos un setState que limpia todos los datos e va a tener el formulario q en principio lo unico q se ve en el foormulario es el campo de texto 
+            // Limpio el campo de texto y yast.
+            //Despuesredireccionamos a la home si todo va bien a la pantalla de home.
+            //Catch para q no se rompa nada
             .then(() => {
                 this.setState({
                     textoPost:'',
@@ -38,12 +43,17 @@ class NuevoPost extends Component{
             .catch( e => console.log(e))
     }
 
-    onImageUpload(url){
+    onImageUpload(url){//metodo pa que queede parejo, cuando la foto se suba necvesito q me traigas el dato osea una url 
         this.setState({
             photo: url,
             showCamera: false,
         })
     }
+//El render funciona, tengo un formulario para cargar un nuevo post, tine un campo de teext imput 
+//poner propiedad para transformarlo een textArea 
+//Lo que pasa despues con el this.state vamos a star actualizando l  esatdo  y por ultimo mostrando lo q estamos actualkizando se elo mostramos al usuario
+//Est formulario qu ahora solo tien un campo va a eestar ejecutando un touchabl opacity  con la palabra guardar
+// y l metodo va a ser creatpost.
 
     render(){
         return(
@@ -90,4 +100,6 @@ const styles = StyleSheet.create({
     },
    
 })
+//CON  EL posteo creado voy a ir a la home, pantalla principal y lo que voy a hacr en ele component dismount d ela hjome voy a estar trayendo todo lo que tiene la coleccion de posteos 
+//que dice (sigo en home)
 export default NuevoPost;
