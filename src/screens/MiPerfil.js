@@ -63,14 +63,14 @@ logout() {
 
     render(){
         return(
-            <View>
+            <View style={styles.container}> 
             {
                 this.state.user.length == 0 ?
                 <Text>  </Text> :
                 <View >
-                <Text> {this.state.user[0].data.usuario} </Text> 
-                <Text> {this.state.user[0].data.owner} </Text> 
-                <Text> {this.state.user[0].data.biografia} </Text> 
+                <Text style={styles.usern}> Nombre: {this.state.user[0].data.usuario} </Text> 
+                <Text style={styles.usern}> Mail: {this.state.user[0].data.owner} </Text> 
+                <Text style={styles.usern}> Biografìa: {this.state.user[0].data.biografia} </Text> 
                 <Image
                 style={styles.photo}
                 source={{ uri: this.state.user.photo }}
@@ -80,16 +80,16 @@ logout() {
             }
 
 
-            <Text> Mis {this.state.posts.length} posteos  </Text>
+            <Text style={styles.title}> Mis {this.state.posts.length} posteos  </Text>
             <FlatList 
                 data={this.state.posts}
                 keyExtractor={ onePost => onePost.id.toString()}
                 renderItem={ ({item}) => <Post postData={item} navigation={this.props.navigation} />}
             /> 
-                <TouchableOpacity onPress={ () => this.logout ()}>
-                        <Text>Salir de mi cuenta</Text>
+                <TouchableOpacity onPress={ () => this.logout ()} style= {styles.buttonOut}>
+                        <Text style={styles.out}>Salir de mi cuenta</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={ () => this.deleteProfile ()}>
+                <TouchableOpacity onPress={ () => this.deleteProfile ()} style= {styles.buttonEliminar}>
                         <Text>Eliminar mi cuenta</Text>
                 </TouchableOpacity>
             
@@ -101,12 +101,54 @@ logout() {
 const styles = StyleSheet.create({
     title:{
         fontSize: 22,
-        color: "red"
+        color: "rgb(52, 152, 219)",
+        fontFamily: 'raleway heavy',
+        textAlign: 'center',
+        fontWeight: 50,
+        alignItems: 'center'
     },
-    phot: {
-        width: 250,
-        height: 250
-    }
+    photo: {
+        width: 150,
+        height: 150
+    },
+    container: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    usern: {
+        fontFamily: 'raleway heavy',
+        fontSize: 20,
+        color: 'black',
+        marginLeft: 15, 
+    },
+    out: {
+        fontFamily: 'raleway heavy',
+        fontSize: 15,
+        alignItems: 'center',
+    },
+    buttonOut: {
+        width:'30%',
+        color:"#FFA400",
+        alignItems: 'center',
+        borderColor: 'rgb(77, 86, 86)',
+        borderWidth: 3,
+        borderRadius: 12,
+        marginBottom: 5,
+        marginTop: 25
+    },
+    buttonEliminar: {
+        width:'30%',
+        color:"#FFA400",
+        alignItems: 'center',
+        borderColor: 'rgb(77, 86, 86)',
+        borderWidth: 3,
+        borderRadius: 12,
+        marginBottom: 25,
+        marginTop: 10
+    },
+
 })
 
 export default Perfil

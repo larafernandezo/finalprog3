@@ -84,13 +84,9 @@ class Perfil extends Component {
 };
 
 const styles = StyleSheet.create({
-    title:{
-        fontSize: 22,
-        color: "red"
-    },
     foto:{
-        width:250,
-        height:250
+        width:150,
+        height:150
     }
 })
 
