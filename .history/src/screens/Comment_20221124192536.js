@@ -47,21 +47,7 @@ class Comment extends Component {
 
 
   render() {
-    return (//aca iria el siguiente codigo, pero nos rompe asi que lo dejmaos comentado
-     // <View style={styles.container}>
-     //   <AntDesign name="left" size={24} color="black" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
-     //   <Text style={styles.descripcion}>{this.state.data.Description}</Text>
-      //  <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
-     //   <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
-     //   <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario} style={styles.input}/>
-     //   <TouchableOpacity onPress={() => this.publicarComentario()}>
-     //       <Text style={styles.button}>Comentar</Text>
-    //    </TouchableOpacity>
-  //    </View>
-  //  )
- // }
-//}
-
+    return (//aca iria el siguiente codigo, pero nos rompe asi que lo dejmaos comentadop
       <View style={styles.container}>
         <AntDesign name="left" size={24} color="black" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
         <Text style={styles.descripcion}>{this.state.data.Description}</Text>

@@ -120,7 +120,6 @@ render(){
                     />
                         <TouchableOpacity onPress={() => this.publicarComentario()}>
                      <Text style={styles.button}>Comentar</Text>
-                    
         </TouchableOpacity>
         </View>
     )
@@ -149,9 +148,7 @@ const styles= StyleSheet.create ({
         padding: 5,
         alignItems:'center'
           
-    }, 
-    button: {
-        color:'white',
+    }, button: {
         backgroundColor: 'lightblue',
         borderRadius: '5%'
       },
@@ -159,6 +156,11 @@ const styles= StyleSheet.create ({
     like:{
         marginRight:'25%',
         marginTop: 2,
+    },button:{
+        backgroundColor: 'black',
+        color: 'black',
+        border: 'none',
+        padding: 5 
     },
     user:{
         fontFamily: 'avenir',

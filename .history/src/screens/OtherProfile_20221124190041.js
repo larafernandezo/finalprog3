@@ -86,11 +86,11 @@ class OtherProfile extends Component {
                     </TouchableOpacity>
                     
                 </View>
-                <FlatList 
+                <FlatList
                     data={this.state.posteos}
-                    keyExtractor={ item => item.id.toString()}
-                    renderItem={ ({item}) => <Post postData={item} navigation={this.props.navigation} id={item.id}/>}
-                />  
+                    keyExtractor={item => item.id.toString()}
+                    renderItem={({ item }) => <Post postData={item} navigation={this.props.navigation} id={item.id} />}
+                />
             </View>
         )
     }

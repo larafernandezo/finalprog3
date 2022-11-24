@@ -79,7 +79,7 @@ logout() {
                 />
                 </View>
             }
-</View>
+
 
             <Text style={styles.title}> Mis {this.state.posts.length} posteos  </Text>
             <FlatList 

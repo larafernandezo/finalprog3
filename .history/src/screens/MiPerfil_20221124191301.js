@@ -64,7 +64,6 @@ logout() {
     render(){
         return(
             <View style={styles.container}> 
-         <View style={styles.containerBio}>
             {
                 this.state.user.length == 0 ?
                 <Text>  </Text> :
@@ -79,7 +78,7 @@ logout() {
                 />
                 </View>
             }
-</View>
+
 
             <Text style={styles.title}> Mis {this.state.posts.length} posteos  </Text>
             <FlatList 
@@ -154,7 +153,7 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         marginTop: 10
     },
-containerBio: {
+    containerBio: {
         display: 'flex',
         alignItems: 'center'
     },

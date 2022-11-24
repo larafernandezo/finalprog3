@@ -120,7 +120,11 @@ render(){
                     />
                         <TouchableOpacity onPress={() => this.publicarComentario()}>
                      <Text style={styles.button}>Comentar</Text>
-                    
+                     <FlatList 
+                    data={this.state.posteos}
+                    keyExtractor={ item => item.id.toString()}
+                    renderItem={ ({item}) => <Post postData={item} navigation={this.props.navigation} id={item.id}/>}
+                />  
         </TouchableOpacity>
         </View>
     )
@@ -151,7 +155,7 @@ const styles= StyleSheet.create ({
           
     }, 
     button: {
-        color:'white',
+        color:''
         backgroundColor: 'lightblue',
         borderRadius: '5%'
       },
@@ -159,6 +163,11 @@ const styles= StyleSheet.create ({
     like:{
         marginRight:'25%',
         marginTop: 2,
+    },button:{
+        backgroundColor: 'black',
+        color: 'black',
+        border: 'none',
+        padding: 5 
     },
     user:{
         fontFamily: 'avenir',

@@ -118,10 +118,7 @@ render(){
                         onChangeText={(text) => { this.setState({ comment: text }) }}
                         value={this.state.comment}
                     />
-                        <TouchableOpacity onPress={() => this.publicarComentario()}>
-                     <Text style={styles.button}>Comentar</Text>
-                    
-        </TouchableOpacity>
+                    √
         </View>
     )
 }
@@ -149,16 +146,16 @@ const styles= StyleSheet.create ({
         padding: 5,
         alignItems:'center'
           
-    }, 
-    button: {
-        color:'white',
-        backgroundColor: 'lightblue',
-        borderRadius: '5%'
-      },
+    },
    
     like:{
         marginRight:'25%',
         marginTop: 2,
+    },button:{
+        backgroundColor: 'black',
+        color: 'black',
+        border: 'none',
+        padding: 5 
     },
     user:{
         fontFamily: 'avenir',

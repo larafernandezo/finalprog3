@@ -64,13 +64,13 @@ logout() {
     render(){
         return(
             <View style={styles.container}> 
-         <View style={styles.containerBio}>
             {
                 this.state.user.length == 0 ?
                 <Text>  </Text> :
                 <View style={styles.containerBio}>
                 <Text style={styles.usern}> Nombre: {this.state.user[0].data.usuario} </Text> 
                 <Text style={styles.usern}> Mail: {this.state.user[0].data.owner} </Text> 
+                
                 <Text style={styles.usern}> Biografìa: {this.state.user[0].data.biografia} </Text> 
                 <Image
                 style={styles.photo}
@@ -79,7 +79,7 @@ logout() {
                 />
                 </View>
             }
-</View>
+
 
             <Text style={styles.title}> Mis {this.state.posts.length} posteos  </Text>
             <FlatList 
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         marginTop: 10
     },
-containerBio: {
+    containerBio: {
         display: 'flex',
         alignItems: 'center'
     },

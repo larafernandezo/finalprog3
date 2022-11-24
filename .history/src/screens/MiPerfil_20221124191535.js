@@ -64,7 +64,7 @@ logout() {
     render(){
         return(
             <View style={styles.container}> 
-         <View style={styles.containerBio}>
+         <View style={styles.containerBio}></View>
             {
                 this.state.user.length == 0 ?
                 <Text>  </Text> :
@@ -79,7 +79,7 @@ logout() {
                 />
                 </View>
             }
-</View>
+
 
             <Text style={styles.title}> Mis {this.state.posts.length} posteos  </Text>
             <FlatList 

@@ -48,34 +48,43 @@ class Comment extends Component {
 
   render() {
     return (//aca iria el siguiente codigo, pero nos rompe asi que lo dejmaos comentado
-     // <View style={styles.container}>
-     //   <AntDesign name="left" size={24} color="black" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
-     //   <Text style={styles.descripcion}>{this.state.data.Description}</Text>
-      //  <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
-     //   <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
-     //   <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario} style={styles.input}/>
-     //   <TouchableOpacity onPress={() => this.publicarComentario()}>
-     //       <Text style={styles.button}>Comentar</Text>
-    //    </TouchableOpacity>
-  //    </View>
-  //  )
- // }
-//}
+    //<View style={styles.container}>
+    <Text style={styles.texto}>Comentarios del posteo</Text>
+    {
+      this.state.arrComments.length > 0 ?
+        <FlatList
+          data={this.state.arrComments.sort((actual, vecino)=> actual.createdAt - vecino.createdAt).reverse()}
+          keyExtractor={item => item.createdAt.toString()}
+          renderItem={({ item }) => <Text style={styles.textComm}>{item.owner} comento: {item.comment}</Text>}
+          
+        />
+        :
+        <Text style={styles.texto2}>No hay comentarios, se el primero en comentar</Text>
+    }
+    <View>
+      <TextInput
+        placeholder='Escribi tu comentario...'
+        style={styles.input}
+        keyboardType='default'
+        onChangeText={text => this.setState({ comentario: text })}
+        value={this.state.comentario}
+      />
 
-      <View style={styles.container}>
-        <AntDesign name="left" size={24} color="black" onPress={() => this.props.navigation.navigate('Home')} style={styles.back}/>
-        <Text style={styles.descripcion}>{this.state.data.Description}</Text>
-        <FlatList data={this.state.data.comentarios} keyExtractor={(post) => post.createdAt.toString()} renderItem={({ item }) => (
-        <Text> {" "} {item.author}: {item.comentarioTexto} </Text>)}/>
-        <TextInput keyboardType='default' placeholder='Escribí tu comentario' onChangeText={(text) => { this.setState({ comentario: text }) }} value={this.state.comentario} style={styles.input}/>
-        <TouchableOpacity onPress={() => this.publicarComentario()}>
-            <Text style={styles.button}>Comentar</Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
+      {
+        this.state.comentario.length > 0 ?
+          <TouchableOpacity onPress={() => this.sendComment(this.state.comentario)}>
+            <Text style={styles.texto2}>Comentar</Text>
+          </TouchableOpacity>
+          :
+          ""
+      }
+
+    </View>
+  </View>
+)
 }
-
+}
+    
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
