@@ -20,7 +20,7 @@ class Comment extends Component {
     db.collection("posts").doc(this.state.id).onSnapshot((doc) => {
         this.setState({
           data: doc.data(),
-        });
+        });8    
       });
   }
 

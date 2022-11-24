@@ -88,7 +88,10 @@ const styles = StyleSheet.create({
     title: {
         marginBottom: 9
     },
-    
+    button: {
+        backgroundColor: 'lightblue',
+        borderRadius: '5%'
+      },
    
 })
 export default NuevoPost;

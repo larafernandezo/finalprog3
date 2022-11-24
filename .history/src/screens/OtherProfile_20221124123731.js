@@ -8,7 +8,7 @@ class OtherProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            usuario: [],
+            usuar: [],
             usuario: '',
             biografia: '',
             email: '',
@@ -30,15 +30,15 @@ class OtherProfile extends Component {
                     const data = doc.data();
 
                     if (data.owner === email) {
-                        usuario = data
+                        user = data
 
                     }
                 });
 
                 this.setState({
-                    nombre: usuario.owner,
+                    nombre: user.owner,
                     usuario: usuario.usuario,
-                    biografia: usuario.biografia,
+                    biografia: user.biografia,
                    // photo: usuario.photo
                 });
             }
@@ -79,7 +79,7 @@ class OtherProfile extends Component {
                         source={{ uri: this.state.photo }}
                     />
                     <Text style={styles.text}>Nombre del usuario:{this.state.nombre}</Text>
-                    <Text style={styles.text} >Usuario:{this.state.usuario}</Text>
+                    <Text style={styles.text} >Usuario:{this.state.user}</Text>
                     <Text style={styles.text} >Bio:{this.state.biografia}</Text>
                     <TouchableOpacity onPress={() => this.logOut()}>
                         <Text style={styles.button} >  <button>Logout</button></Text>

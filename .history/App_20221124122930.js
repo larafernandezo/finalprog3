@@ -8,7 +8,7 @@ import Menu from './src/components/Menu';
 import MyCamera from './src/components/Camera';
 import OtherProfile from './src/screens/OtherProfile';
 import Comment from './src/screens/Comment';
-import Perfil from './src/screens/MiPerfil'
+import Miperfil from './src/screens/MiPerfil'
 
 
 const Stack = createNativeStackNavigator();

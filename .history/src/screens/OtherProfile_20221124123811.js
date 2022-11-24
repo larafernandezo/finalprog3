@@ -79,7 +79,7 @@ class OtherProfile extends Component {
                         source={{ uri: this.state.photo }}
                     />
                     <Text style={styles.text}>Nombre del usuario:{this.state.nombre}</Text>
-                    <Text style={styles.text} >Usuario:{this.state.usuario}</Text>
+                    <Text style={styles.text} >Usuario:{this.state.usuar}</Text>
                     <Text style={styles.text} >Bio:{this.state.biografia}</Text>
                     <TouchableOpacity onPress={() => this.logOut()}>
                         <Text style={styles.button} >  <button>Logout</button></Text>

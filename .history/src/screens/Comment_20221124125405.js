@@ -20,7 +20,7 @@ class Comment extends Component {
     db.collection("posts").doc(this.state.id).onSnapshot((doc) => {
         this.setState({
           data: doc.data(),
-        });
+        });8    
       });
   }
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   button: {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'red',
     borderRadius: '5%'
   },
   textoPost: {

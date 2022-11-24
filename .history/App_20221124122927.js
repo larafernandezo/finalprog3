@@ -8,7 +8,7 @@ import Menu from './src/components/Menu';
 import MyCamera from './src/components/Camera';
 import OtherProfile from './src/screens/OtherProfile';
 import Comment from './src/screens/Comment';
-import Perfil from './src/screens/MiPerfil'
+import Miperfil from './src/screens/MiPerfil'
 
 
 const Stack = createNativeStackNavigator();
@@ -21,7 +21,7 @@ function App() {
         <Stack.Screen name='Login' component={Login} options= {{ headerShown : false}}/>
         <Stack.Screen name='Registro' component={Registro} options= {{ headerShown : false}}/>
         <Stack.Screen name='Home' component={Home} options= {{ headerShown : false}}/>
-        <Stack.Screen name="MiPerfil" component={Perfil} options={{ headerShown: false }} />
+        <Stack.Screen name="Miperfil" component={Perfil} options={{ headerShown: false }} />
         <Stack.Screen name='Menu' component={Menu} options= {{ headerShown : false}}/>
         <Stack.Screen name="Comment" component={Comment} options={{ headerShown: false }} />
         <Stack.Screen name="OtherProfile" component={OtherProfile} options={{ headerShown: false }} />

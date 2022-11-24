@@ -89,7 +89,7 @@ class OtherProfile extends Component {
                 <FlatList
                     data={this.state.posteos}
                     keyExtractor={item => item.id.toString()}
-                    renderItem={({ item }) => <Post postData={item} navigation={this.props.navigation} id={item.id} />}
+                    renderItem={ ({item}) => <Post postData={item} navigation={this.props.navigation} />}
                 />
             </View>
         )

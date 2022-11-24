@@ -8,7 +8,7 @@ class OtherProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            usuario: [],
+            user: [],
             usuario: '',
             biografia: '',
             email: '',
@@ -23,22 +23,22 @@ class OtherProfile extends Component {
 
         db.collection('users').where('owner', '==', email).onSnapshot(
             docs => {//todos datos de la colección
-                let usuario;
+                let usuarios;
 
                 //CAMBIAR POR WHERE
                 docs.forEach(doc => { //por cada documento, quiero un doc y la función que ejecutaré por cada doc
                     const data = doc.data();
 
                     if (data.owner === email) {
-                        usuario = data
+                        user = data
 
                     }
                 });
 
                 this.setState({
-                    nombre: usuario.owner,
-                    usuario: usuario.usuario,
-                    biografia: usuario.biografia,
+                    nombre: user.owner,
+                    user: user.usuario,
+                    biografia: user.biografia,
                    // photo: usuario.photo
                 });
             }
@@ -79,7 +79,7 @@ class OtherProfile extends Component {
                         source={{ uri: this.state.photo }}
                     />
                     <Text style={styles.text}>Nombre del usuario:{this.state.nombre}</Text>
-                    <Text style={styles.text} >Usuario:{this.state.usuario}</Text>
+                    <Text style={styles.text} >Usuario:{this.state.user}</Text>
                     <Text style={styles.text} >Bio:{this.state.biografia}</Text>
                     <TouchableOpacity onPress={() => this.logOut()}>
                         <Text style={styles.button} >  <button>Logout</button></Text>
