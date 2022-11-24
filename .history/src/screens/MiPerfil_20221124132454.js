@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    usern: {
+    : {
         fontFamily: 'raleway heavy',
         fontSize: 20,
         color: 'black',

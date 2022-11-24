@@ -108,13 +108,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     photo: {
-        height: 200,
-        width: 200,
-        border: '2px solid #ddd',
-        borderRadius: '50%',
-        padding: 5,
-        alignItems: 'center',
-        margin: '3%'
+        width: 150,
+        height: 150
     },
     container: {
         flex: 1,
